@@ -26,7 +26,19 @@ public class SettingUI : MonoBehaviour
 
     private void OnEnable()
     {
-        switch (PlayerSettings.controlType)
+        ControlTypeSetting(PlayerSettings.controlType);
+    }
+
+    public void SetControlMode(int controlType)
+    {
+        PlayerSettings.controlType = (EControlType)controlType;
+
+        ControlTypeSetting(PlayerSettings.controlType);
+    }
+
+    private void ControlTypeSetting(EControlType eControlType)
+    {
+        switch (eControlType)
         {
             case EControlType.Mouse:
                 MouseControlButton.image.color = Color.green;
@@ -39,25 +51,6 @@ public class SettingUI : MonoBehaviour
                 MouseTMP.color = Color.white;
                 KeyboardMouseControlButton.image.color = Color.green;
                 KeyboardMouseTMP.color = Color.green;
-                break;
-            case EControlType.Count:
-                break;
-        }
-    }
-
-    public void SetControlMode(int controlType)
-    {
-        PlayerSettings.controlType = (EControlType)controlType;
-
-        switch (PlayerSettings.controlType)
-        {
-            case EControlType.Mouse:
-                MouseControlButton.image.color = Color.green;
-                KeyboardMouseControlButton.image.color = Color.white;
-                break;
-            case EControlType.KeyboardMouse:
-                MouseControlButton.image.color = Color.white;
-                KeyboardMouseControlButton.image.color = Color.green;
                 break;
             case EControlType.Count:
                 break;
