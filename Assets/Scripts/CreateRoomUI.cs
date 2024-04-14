@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,8 +28,76 @@ public class CreateRoomUI : MonoBehaviour
         UpdateCrewImages();
     }
 
+
+    public void UpdateImposterCount(int count)
+    {
+        roomData.imposterCount = count;
+
+        for (int i = 0; i < imposterCountButtons.Count; ++i)
+        {
+            if (i == count - 1)
+            {
+                imposterCountButtons[i].image.color = new Color(1f, 1f, 1f, 1f);
+            }
+            else
+            {
+                imposterCountButtons[i].image.color = new Color(1f, 1f, 1f, 0f);
+            }
+        }
+
+        int limitMaxPlayer = (count == 1) ? 4 : ((count == 2) ? 7 : 9);
+
+        if(roomData.maxPlayerCount < limitMaxPlayer)
+        {
+            UpdateMaxPlayerCount(limitMaxPlayer);
+        }
+        else
+        {
+            UpdateMaxPlayerCount(roomData.maxPlayerCount);
+        }
+        for(int i = 0; i < maxPlayerCountButtons.Count; ++i)
+        {
+            var text = maxPlayerCountButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+            
+            if(i < limitMaxPlayer - 4)
+            {
+                maxPlayerCountButtons[i].interactable = false;
+                text.color = Color.gray;
+            }
+            else
+            {
+                maxPlayerCountButtons[i].interactable = true;
+                text.color = Color.white;
+            }
+        }
+    }
+
+    public void UpdateMaxPlayerCount(int count)
+    {
+        roomData.maxPlayerCount = count;
+
+        for(int i = 0; i < maxPlayerCountButtons.Count; ++i)
+        {
+            if(i == count - 4)
+            {
+                maxPlayerCountButtons[i].image.color = new Color(1f, 1f, 1f, 1f);
+            }
+            else
+            {
+                maxPlayerCountButtons[i].image.color = new Color(1f, 1f, 1f, 0f);
+            }
+        }
+
+        UpdateCrewImages();
+    }
+
     private void UpdateCrewImages()
     {
+        for(int i = 0; i < crewImgs.Count; ++i)
+        {
+            crewImgs[i].material.SetColor("_PlayerColor", Color.white);
+        }
+
         int imposterCount = roomData.imposterCount;
         int idx = 0;
         while(imposterCount != 0)
@@ -64,7 +133,6 @@ public class CreateGameRoomData
 {
     public int imposterCount;
     public int maxPlayerCount;
-
 
     public CreateGameRoomData(int cic, int cmpc)
     {
