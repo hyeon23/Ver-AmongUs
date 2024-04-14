@@ -2621,8 +2621,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -326, y: -57}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -375, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519375318
 MonoBehaviour:
@@ -11178,8 +11178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -326, y: -156}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -375, y: -110}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1394874753
 MonoBehaviour:
@@ -12689,6 +12689,7 @@ GameObject:
   - component: {fileID: 1708515059}
   - component: {fileID: 1708515061}
   - component: {fileID: 1708515060}
+  - component: {fileID: 1708515062}
   m_Layer: 5
   m_Name: Create Room UI
   m_TagString: Untagged
@@ -12758,6 +12759,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708515058}
   m_CullTransparentMesh: 1
+--- !u!114 &1708515062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708515058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40742b8d5cd270043aa857e7e929abe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crewImgs:
+  - {fileID: 1410269436}
+  - {fileID: 1413793522}
+  - {fileID: 1857627082}
+  - {fileID: 928700367}
+  - {fileID: 481826283}
+  - {fileID: 633441710}
+  - {fileID: 2109559086}
+  - {fileID: 1261009578}
+  - {fileID: 1412958956}
+  - {fileID: 656968382}
+  imposterCountButtons:
+  - {fileID: 1379429079}
+  - {fileID: 1739464044}
+  - {fileID: 1322418300}
+  maxPlayerCountButtons:
+  - {fileID: 1753728482}
+  - {fileID: 1654079269}
+  - {fileID: 624190667}
+  - {fileID: 258415161}
+  - {fileID: 79869819}
+  - {fileID: 477142094}
+  - {fileID: 461380491}
 --- !u!1 &1739464042
 GameObject:
   m_ObjectHideFlags: 0
@@ -14597,9 +14633,9 @@ RectTransform:
   - {fileID: 461380490}
   m_Father: {fileID: 1394874752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 462.5, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 462.5, y: -37.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2034573462
