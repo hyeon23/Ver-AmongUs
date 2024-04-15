@@ -127,6 +127,18 @@ public class CreateRoomUI : MonoBehaviour
             }
         }
     }
+
+    public void CreateRoom()
+    {
+        var manager = AmongUsRoomManager.singleton;
+
+        //방 설정 작업 처리
+        //서버를 열기 전에 방을 세팅하고, 세팅하는 과정 필요(후처리)
+
+        //서버 오픈 & 클라 게임 참가
+        //StartHost(): 서버를 여는 동시에 클라이언트로서 게임에 참가
+        manager.StartHost();
+    }
 }
 
 public class CreateGameRoomData

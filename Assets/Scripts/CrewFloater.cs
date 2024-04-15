@@ -9,6 +9,7 @@ public class CrewFloater : MonoBehaviour
     [SerializeField]
     private List<Sprite> sprites;
 
+    [SerializeField]
     private bool[] crewStates = new bool[12];
     private float timer = 0.5f;
     private float distance = 10;
