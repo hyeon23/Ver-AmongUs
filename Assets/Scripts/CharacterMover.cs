@@ -6,6 +6,8 @@ using Org.BouncyCastle.Bcpg;
 
 public class CharacterMover : NetworkBehaviour
 {
+    private Animator animator;
+
     public bool isMovable;
 
     [SyncVar]//네트워크 동기화
@@ -14,6 +16,8 @@ public class CharacterMover : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         if (isOwned)
         {
             Camera cam = Camera.main;
@@ -33,6 +37,8 @@ public class CharacterMover : NetworkBehaviour
     {
         if(isOwned && isMovable)//권한 O & 이동 가능
         {
+            bool isMove = false;
+
             if(PlayerSettings.controlType == EControlType.Mouse)
             {
                 if (Input.GetMouseButton(0))
@@ -46,6 +52,8 @@ public class CharacterMover : NetworkBehaviour
 
                     //프레임 별 이동
                     transform.position += dir * speed * Time.deltaTime;
+
+                    isMove = dir.magnitude != 0f;
                 }
             }
             else if (PlayerSettings.controlType == EControlType.KeyboardMouse)
@@ -59,7 +67,11 @@ public class CharacterMover : NetworkBehaviour
                 
                 //프레임 별 이동
                 transform.position += dir * speed * Time.deltaTime;
+
+                isMove = dir.magnitude != 0f;
             }
+
+            animator.SetBool("isMove", isMove);
         }
     }
 }
