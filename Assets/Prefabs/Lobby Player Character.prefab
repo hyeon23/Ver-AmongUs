@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1762137670913326090}
   - component: {fileID: 7346564742455525834}
   - component: {fileID: 3337262255250607204}
-  - component: {fileID: 5860881267688829420}
   - component: {fileID: 374073728846932525}
+  - component: {fileID: 5860881267688829420}
   m_Layer: 0
   m_Name: Lobby Player Character
   m_TagString: Untagged
@@ -158,6 +158,23 @@ MonoBehaviour:
   syncInterval: 0
   isMovable: 1
   speed: 2
+--- !u!114 &374073728846932525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228725271522764896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  clientAuthority: 0
+  animator: {fileID: 5860881267688829420}
 --- !u!95 &5860881267688829420
 Animator:
   serializedVersion: 5
@@ -179,20 +196,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &374073728846932525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4228725271522764896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 1
-  syncMode: 0
-  syncInterval: 0
-  clientAuthority: 1
-  animator: {fileID: 5860881267688829420}
