@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1784851263277808174}
   - component: {fileID: 3170296849794314678}
   - component: {fileID: 3714024664854554080}
+  - component: {fileID: 951150420980408991}
   m_Layer: 6
   m_Name: Lobby Player Character
   m_TagString: Untagged
@@ -270,3 +271,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &951150420980408991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228725271522764896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2faf7df80f7eb49a76d52d7e4927c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingType: 1

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6009522647970661970}
   - component: {fileID: 4612081233703487279}
   - component: {fileID: 6433888378315622473}
+  - component: {fileID: 6877212025546251709}
   m_Layer: 0
   m_Name: Desk
   m_TagString: Untagged
@@ -134,3 +135,16 @@ PolygonCollider2D:
       - {x: 0.5433537, y: -0.30713376}
       - {x: 0.08334467, y: 0.07506791}
   m_UseDelaunayMesh: 0
+--- !u!114 &6877212025546251709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359492620820817706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2faf7df80f7eb49a76d52d7e4927c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingType: 0
