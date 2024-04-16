@@ -47,8 +47,8 @@ public class CharacterMover : NetworkBehaviour
                     Vector3 dir = (Input.mousePosition - new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)).normalized;
 
                     //스프라이트 반전
-                    if (dir.x < 0f) transform.localScale = new Vector3(-0.75f, 0.75f, 1f);
-                    else if (dir.x > 0f) transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+                    if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
+                    else if (dir.x > 0f) transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 
                     //프레임 별 이동
                     transform.position += dir * speed * Time.deltaTime;
@@ -62,8 +62,8 @@ public class CharacterMover : NetworkBehaviour
                 Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f), 1f);
                 
                 //스프라이트 반전
-                if (dir.x < 0f) transform.localScale = new Vector3(-0.75f, 0.75f, 1f);
-                else if (dir.x > 0f) transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+                if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
+                else if (dir.x > 0f) transform.localScale = new Vector3(0.5f, 0.5f, 1f);
                 
                 //프레임 별 이동
                 transform.position += dir * speed * Time.deltaTime;
