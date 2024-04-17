@@ -13,10 +13,28 @@ public class CharacterMover : NetworkBehaviour
     [SyncVar]//네트워크 동기화
     public float speed = 2f;
 
+    private SpriteRenderer spriteRenderer;
+
+    [SyncVar(hook = nameof(SetPlayerColorHook))]
+    //변수 동기화 + hook: SyncVar로 동기화된 변수가 Server에서 변경되면 hook으로 등록된 함수가 Client에서 호출
+    public EPlayerColor playerColor;
+    
+    public void SetPlayerColorHook(EPlayerColor oldColor, EPlayerColor newColor)
+    {
+        if(spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        spriteRenderer.material.SetColor("_PlayerColor", PlayerColor.GetColor(newColor));
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.material.SetColor("_PlayerColor", PlayerColor.GetColor(playerColor));
 
         if (isOwned)
         {
