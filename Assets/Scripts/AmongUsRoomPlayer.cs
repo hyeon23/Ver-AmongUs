@@ -52,6 +52,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         Vector3 spawnPos = FindObjectOfType<SpawnPositions>().GetSpawnPosition();
 
         var player = Instantiate(AmongUsRoomManager.singleton.spawnPrefabs[0], spawnPos, Quaternion.identity).GetComponent<LobbyCharacterMover>();
+        
         NetworkServer.Spawn(player.gameObject, connectionToClient);
 
         player.playerColor = color;

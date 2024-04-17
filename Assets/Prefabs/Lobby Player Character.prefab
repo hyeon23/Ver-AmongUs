@@ -159,7 +159,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  clientAuthority: 0
+  clientAuthority: 1
   animator: {fileID: 5860881267688829420}
 --- !u!95 &5860881267688829420
 Animator:
@@ -199,6 +199,7 @@ MonoBehaviour:
   syncInterval: 0
   isMovable: 0
   speed: 2
+  playerColor: 0
 --- !u!61 &3170296849794314678
 BoxCollider2D:
   m_ObjectHideFlags: 0
