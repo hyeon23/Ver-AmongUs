@@ -16,11 +16,6 @@ public class SortingSprite : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         sorter = FindObjectOfType<SpriteSorter>();

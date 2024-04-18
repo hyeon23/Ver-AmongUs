@@ -11,6 +11,14 @@ public class SpriteSorter : MonoBehaviour
     private Transform Back;
     [SerializeField]
     private Transform Front;
+
+    /// <summary>
+    /// objDist: back과 go간 거리
+    /// totalDist: back과 front의 거리
+    /// 16bit 최대 값 사이 중 현재 거리 / 최대 거리의 비율에 따른 값을 리턴
+    /// </summary>
+    /// <param name="go"></param>
+    /// <returns></returns>
     public int GetSortingOrder(GameObject go)
     {
         float objDist = Mathf.Abs(Back.position.y - go.transform.position.y);
