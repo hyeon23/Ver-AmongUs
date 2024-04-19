@@ -18,7 +18,11 @@ public class CharacterMover : NetworkBehaviour
     [SyncVar(hook = nameof(SetPlayerColorHook))]
     //변수 동기화 + hook: SyncVar로 동기화된 변수가 Server에서 변경되면 hook으로 등록된 함수가 Client에서 호출
     public EPlayerColor playerColor;
-    
+
+    /// <summary>
+    /// SyncVar [player Color(=색)]이 변경될 경우 클라이언트 측면에서 호출되는 함수
+    /// 인자로 들어온 newColor의 색상으로 material의 Color를 변경해줌
+    /// </summary>
     public void SetPlayerColorHook(EPlayerColor oldColor, EPlayerColor newColor)
     {
         if(spriteRenderer == null)
