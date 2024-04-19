@@ -17,6 +17,7 @@ public class CrewFloater : MonoBehaviour
     private float timer = 0.5f;
     private float distance = 10;
 
+    //시작 시, 색깔 별 12개의 Crew Floater를 스폰
     private void Start()
     {
         for(int i = 0; i < (int)EPlayerColor.Count; ++i)
@@ -26,6 +27,7 @@ public class CrewFloater : MonoBehaviour
         }
     }
 
+    //특정 시간마다 Floating Crew를 스폰
     private void Update()
     {
         timer -= Time.deltaTime;
@@ -36,6 +38,10 @@ public class CrewFloater : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 생성되지 않은 playerColor 색의 dist 원형 거리에 Floating Crew를 스폰하는 함수
+    /// 
+    /// </summary>
     public void SpawnFloatingCrew(EPlayerColor playerColor, float dist)
     {
         if (!crewStates[(int)playerColor])
@@ -48,6 +54,8 @@ public class CrewFloater : MonoBehaviour
             float floatingSpeed = Random.Range(1f, 4f);
             float rotateSpeed = Random.Range(-3f, 3f);
             var crew = Instantiate(crewPrefab, spawnPos, Quaternion.identity).GetComponent<FloatingCrew>();
+
+            //생성한 crew의 환경 설정
             crew.SetFloatingCrew(sprites[Random.Range(0, sprites.Count)], playerColor, direction, floatingSpeed, rotateSpeed, Random.Range(0.5f, 1f));
         }
     }

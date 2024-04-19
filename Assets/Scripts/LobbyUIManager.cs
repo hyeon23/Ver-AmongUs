@@ -9,15 +9,4 @@ public class LobbyUIManager : MonoBehaviour
     [SerializeField]
     private CustomizeUI customizeUI;
     public CustomizeUI CustomizeUI { get { return customizeUI; } }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

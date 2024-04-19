@@ -19,6 +19,7 @@ public class OnlineUI : MonoBehaviour
 
     /// <summary>
     /// 방 만들기 버튼을 눌렀을 때 호출
+    /// createRoomUI에서 방에 대한 세부 설정 수행 및 생성
     /// </summary>
     public void OnClickCreateRoom()
     {
