@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// FloatingCrew에 부착되는 컴포넌트
+/// </summary>
 public class FloatingCrew : MonoBehaviour
 {
     public EPlayerColor playerColor;
@@ -17,6 +20,15 @@ public class FloatingCrew : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    /// <summary>
+    /// floatingCrew의 속성 설정
+    /// </summary>
+    /// <param name="sprite">floatingCrew 스프라이트 설정</param>
+    /// <param name="playerColor">floatingCrew 색상 설정</param>
+    /// <param name="direction">이동 방향</param>
+    /// <param name="floatingSpeed">이동 속도</param>
+    /// <param name="rotateSpeed">회전 속도</param>
+    /// <param name="size">floatingCrew 크기</param>
     public void SetFloatingCrew(Sprite sprite, EPlayerColor playerColor, Vector3 direction, float floatingSpeed, float rotateSpeed, float size)
     {
         this.playerColor = playerColor;
@@ -31,7 +43,9 @@ public class FloatingCrew : MonoBehaviour
         spriteRenderer.sortingOrder = (int)Mathf.Lerp(1, 32767, size);
     }
 
-
+    /// <summary>
+    /// 매 속도마다 이동 & 회전
+    /// </summary>
     private void Update()
     {
         transform.position += direction * floatingSpeed * Time.deltaTime;

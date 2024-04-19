@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 색깔별로 존재하는 FloatingCrew를 관리하는 클래스
+/// </summary>
 public class CrewFloater : MonoBehaviour
 {
     [SerializeField]

@@ -25,6 +25,7 @@ public class SortingSprite : MonoBehaviour
 
     private void Update()
     {
+        //ESortingType.Update의 경우 지속적으로 sotingOrder 업데이트
         if(sortingType == ESortingType.Update)
         {
             spriteRenderer.sortingOrder = sorter.GetSortingOrder(gameObject);
