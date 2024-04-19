@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// SotringSprite에 부착하는 클래스(컴포넌트)
+/// </summary>
 public class SortingSprite : MonoBehaviour
 {
+    /// <summary>
+    /// 배경: Static
+    /// 동적(이동) 오브젝트: Update
+    /// </summary>
     public enum ESortingType
     {
         Static, Update, Count

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 플레이어가 가질 수 있는 색상을 문자로 표현하게 해주는 Enum 클래스
+/// </summary>
 public enum EPlayerColor
 {
     Red, Blue, Green, 
@@ -11,6 +14,9 @@ public enum EPlayerColor
     Count
 }
 
+/// <summary>
+/// 플레이어 색상에 관한 정보를 가진 클래스
+/// </summary>
 public class PlayerColor
 {
     private static List<Color> colors = new List<Color>()
@@ -32,7 +38,11 @@ public class PlayerColor
         new Color(0.1f, 1f, 0.1f)
     };
 
-    public static Color GetColor(EPlayerColor playrColor) {  return colors[(int)playrColor]; }
+    public static Color GetColor(EPlayerColor playrColor) 
+    {  
+        return colors[(int)playrColor]; 
+    }
+
     public static Color Red { get { return colors[(int)EPlayerColor.Red]; } }
     public static Color Blue { get { return colors[(int)EPlayerColor.Blue]; } }
     public static Color Green { get { return colors[(int)EPlayerColor.Green]; } }
