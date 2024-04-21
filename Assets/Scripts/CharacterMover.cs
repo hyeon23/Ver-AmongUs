@@ -49,12 +49,17 @@ public class CharacterMover : NetworkBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// 매 프레임마다 이동
+    /// </summary>
     void FixedUpdate()
     {
         Move();
     }
 
+    /// <summary>
+    /// 매 프레임마다 진행되는 이동 함수
+    /// </summary>
     public void Move()
     {
         if(isOwned && isMovable)//권한 O & 이동 가능
