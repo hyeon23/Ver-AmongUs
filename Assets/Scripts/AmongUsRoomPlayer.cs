@@ -36,7 +36,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
 
     public void SetPlayerColor_Hook(EPlayerColor oldColor, EPlayerColor newColor)
     {
-        LobbyUIManager.instance.CustomizeUI.UpdateColorButton();
+        LobbyUIManager.Instance.CustomizeUI.UpdateColorButton();
     }
 
     //Lobby Player Character 캐릭터를 LobbyCharacterMover로 조작하기 위한 변수
