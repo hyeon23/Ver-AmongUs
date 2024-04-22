@@ -58,6 +58,16 @@ public class CustomizeUI : MonoBehaviour
         characterPreview.material.SetColor("_PlayerColor", PlayerColor.GetColor(color));
     }
 
+    public void UpdateSelectColorButton(EPlayerColor color)
+    {
+        colorSelectButtons[(int)color].SetInteractable(false);
+    }
+
+    public void UpdateUnselectColorButton(EPlayerColor color)
+    {
+        colorSelectButtons[(int)color].SetInteractable(true);
+    }
+
     public void OnClickColorButton(int index)
     {
         if (colorSelectButtons[index].isInteractable)

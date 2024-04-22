@@ -36,7 +36,8 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
 
     public void SetPlayerColor_Hook(EPlayerColor oldColor, EPlayerColor newColor)
     {
-        LobbyUIManager.Instance.CustomizeUI.UpdateColorButton();
+        LobbyUIManager.Instance.CustomizeUI.UpdateUnselectColorButton(oldColor);
+        LobbyUIManager.Instance.CustomizeUI.UpdateSelectColorButton(newColor);
     }
 
     //Lobby Player Character ĳ���͸� LobbyCharacterMover�� �����ϱ� ���� ����
@@ -51,6 +52,14 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         {
             //RoomPlayer�� Server��� -> LobbyPlayer ����
             SpawnLobbyPlayer();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(LobbyUIManager.Instance != null)
+        {
+            LobbyUIManager.Instance.CustomizeUI.UpdateUnselectColorButton(playerColor);
         }
     }
 
