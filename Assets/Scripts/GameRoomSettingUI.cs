@@ -7,7 +7,7 @@ public class GameRoomSettingUI : SettingUI
     public void ExitGameRoom()
     {
         //Host Migration
-        //-È£½ºÆ®°¡ Á¾·áÇÒ °æ¿ì, Å¬¶óÀÌ¾ðÆ®°¡ HostÀÇ ±ÇÇÑÀ» À§ÀÓ¹Þ´Â ±â´É °³¹ß ÇÊ¿ä
+        //-È£ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ Hostï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¹Þ´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
         var manager = AmongUsRoomManager.singleton;
         if(manager.mode == Mirror.NetworkManagerMode.Host)
         {

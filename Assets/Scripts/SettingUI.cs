@@ -30,9 +30,9 @@ public class SettingUI : MonoBehaviour
     }
 
     /// <summary>
-    /// Á¶ÀÛ ¹æ½ÄÀ» ¼³Á¤ÇÏ´Â ±â´É
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="controlType">EControlType¿¡ ÇØ´çÇÏ´Â int °ª</param>
+    /// <param name="controlType">EControlTypeï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ int ï¿½ï¿½</param>
     public void SetControlMode(int controlType)
     {
         PlayerSettings.controlType = (EControlType)controlType;
@@ -41,7 +41,7 @@ public class SettingUI : MonoBehaviour
     }
 
     /// <summary>
-    /// ¼±ÅÃÇÑ ControlType¿¡ µû¸¥ UI ¼¼ÆÃ
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ControlTypeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="eControlType"></param>
     private void ControlTypeSetting(EControlType eControlType)
@@ -74,8 +74,8 @@ public class SettingUI : MonoBehaviour
     }
 
     /// <summary>
-    /// Close¿¡ Delay¸¦ ÁÖ´Â ¹æ½Ä
-    /// ´ë±â ¸ðµå·Î µ¹¾Æ°¡±â À§ÇØ, Close ¼öÇà ÈÄ, ResetTrigger È£Ãâ
+    /// Closeï¿½ï¿½ Delayï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
+    /// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, Close ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ResetTrigger È£ï¿½ï¿½
     /// </summary>
     /// <returns></returns>
     private IEnumerator CloseAfterDelay()

@@ -5,5 +5,5 @@ using Mirror;
 
 public class AmongUsGamePlayer : NetworkBehaviour
 {
-   
+   //가나다라마바사
 }

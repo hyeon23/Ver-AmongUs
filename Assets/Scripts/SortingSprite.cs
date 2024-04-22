@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// SotringSprite¿¡ ºÎÂøÇÏ´Â Å¬·¡½º(ÄÄÆ÷³ÍÆ®)
+/// SotringSpriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®)
 /// </summary>
 public class SortingSprite : MonoBehaviour
 {
     /// <summary>
-    /// ¹è°æ: Static
-    /// µ¿Àû(ÀÌµ¿) ¿ÀºêÁ§Æ®: Update
+    /// ï¿½ï¿½ï¿½: Static
+    /// ï¿½ï¿½ï¿½ï¿½(ï¿½Ìµï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®: Update
     /// </summary>
     public enum ESortingType
     {
@@ -32,7 +32,7 @@ public class SortingSprite : MonoBehaviour
 
     private void Update()
     {
-        //ESortingType.UpdateÀÇ °æ¿ì Áö¼ÓÀûÀ¸·Î sotingOrder ¾÷µ¥ÀÌÆ®
+        //ESortingType.Updateï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ sotingOrder ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
         if(sortingType == ESortingType.Update)
         {
             spriteRenderer.sortingOrder = sorter.GetSortingOrder(gameObject);

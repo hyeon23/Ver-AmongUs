@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// FloatingCrew¿¡ ºÎÂøµÇ´Â ÄÄÆ÷³ÍÆ®
+/// FloatingCrewï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 /// </summary>
 public class FloatingCrew : MonoBehaviour
 {
@@ -21,14 +21,14 @@ public class FloatingCrew : MonoBehaviour
     }
 
     /// <summary>
-    /// floatingCrewÀÇ ¼Ó¼º ¼³Á¤
+    /// floatingCrewï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="sprite">floatingCrew ½ºÇÁ¶óÀÌÆ® ¼³Á¤</param>
-    /// <param name="playerColor">floatingCrew »ö»ó ¼³Á¤</param>
-    /// <param name="direction">ÀÌµ¿ ¹æÇâ</param>
-    /// <param name="floatingSpeed">ÀÌµ¿ ¼Óµµ</param>
-    /// <param name="rotateSpeed">È¸Àü ¼Óµµ</param>
-    /// <param name="size">floatingCrew Å©±â</param>
+    /// <param name="sprite">floatingCrew ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="playerColor">floatingCrew ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="direction">ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="floatingSpeed">ï¿½Ìµï¿½ ï¿½Óµï¿½</param>
+    /// <param name="rotateSpeed">È¸ï¿½ï¿½ ï¿½Óµï¿½</param>
+    /// <param name="size">floatingCrew Å©ï¿½ï¿½</param>
     public void SetFloatingCrew(Sprite sprite, EPlayerColor playerColor, Vector3 direction, float floatingSpeed, float rotateSpeed, float size)
     {
         this.playerColor = playerColor;
@@ -44,7 +44,7 @@ public class FloatingCrew : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸Å ¼Óµµ¸¶´Ù ÀÌµ¿ & È¸Àü
+    /// ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ & È¸ï¿½ï¿½
     /// </summary>
     private void Update()
     {

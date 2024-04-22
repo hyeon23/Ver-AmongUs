@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class SpriteSorter : MonoBehaviour
 {
-    ///³ôÀÌ¿¡ µû¸¥ Sprite Á¤·Ä ±â´É
-    //-Back°ú FrontÀÇ °ªÀ» ¿©À¯¸¦ Áà¼­ ¼³Á¤
-    //-Àý´ë °ªÀ» °è»êÇÏ¹Ç·Î, GameObjectÀÇ ÁÂÇ¥°¡ Back or Front¸¦ »óÈ¸ÇÏ´Â °æ¿ì ¹®Á¦ ¹ß»ý
+    ///ï¿½ï¿½ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Sprite ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    //-Backï¿½ï¿½ Frontï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½à¼­ ï¿½ï¿½ï¿½ï¿½
+    //-ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½, GameObjectï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ Back or Frontï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
     [SerializeField]
     private Transform Back;
     [SerializeField]
     private Transform Front;
 
     /// <summary>
-    /// objDist: back°ú go°£ °Å¸®
-    /// totalDist: back°ú frontÀÇ °Å¸®
-    /// 16bit ÃÖ´ë °ª »çÀÌ Áß ÇöÀç °Å¸® / ÃÖ´ë °Å¸®ÀÇ ºñÀ²¿¡ µû¸¥ °ªÀ» ¸®ÅÏ
+    /// objDist: backï¿½ï¿½ goï¿½ï¿½ ï¿½Å¸ï¿½
+    /// totalDist: backï¿½ï¿½ frontï¿½ï¿½ ï¿½Å¸ï¿½
+    /// 16bit ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ / ï¿½Ö´ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="go">SortingOrderÀÇ °ªÀ» º¯°æÇÏ°í ½ÍÀº ¿ÀºêÁ§Æ®</param>
-    /// <returns>Int16.MinValue-Int16.MaxValue Áß ÆÛ¼¾Æ®¿¡ ¸Â´Â SortingOrder °ª ¸®ÅÏ</returns>
+    /// <param name="go">SortingOrderï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®</param>
+    /// <returns>Int16.MinValue-Int16.MaxValue ï¿½ï¿½ ï¿½Û¼ï¿½Æ®ï¿½ï¿½ ï¿½Â´ï¿½ SortingOrder ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</returns>
     public int GetSortingOrder(GameObject go)
     {
         float objDist = Mathf.Abs(Back.position.y - go.transform.position.y);

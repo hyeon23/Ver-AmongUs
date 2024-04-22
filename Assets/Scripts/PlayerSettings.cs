@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Player¸¦ Á¶ÀÛÇÏ´Â ¹æ½Ä¿¡ ¶§¶õ Enum Å¬·¡½º
+/// Playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Enum Å¬ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 public enum EControlType
 {
@@ -13,7 +13,7 @@ public enum EControlType
 };
 
 /// <summary>
-/// Plyaer È¯°æ ¼³Á¤¿¡ °üÇÑ µ¥ÀÌÅÍ Å¸ÀÔÀ» ´ã°í ÀÖ´Â Å¬·¡½º
+/// Plyaer È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 public class PlayerSettings
 {

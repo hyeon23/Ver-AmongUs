@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// SpawnPositionµéÀ» °ü¸®ÇÏ´Â Å¬·¡½º
+/// SpawnPositionï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 public class SpawnPositions : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class SpawnPositions : MonoBehaviour
     private int index;
 
     /// <summary>
-    /// ÇöÀç index¿¡ ÇØ´çÇÏ´Â SpawnPositionÀ» returnÇØÁØ´Ù.
+    /// ï¿½ï¿½ï¿½ï¿½ indexï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ SpawnPositionï¿½ï¿½ returnï¿½ï¿½ï¿½Ø´ï¿½.
     /// </summary>
     public Vector3 GetSpawnPosition()
     {

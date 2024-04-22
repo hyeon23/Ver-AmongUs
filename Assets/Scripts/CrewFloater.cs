@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// »ö±òº°·Î Á¸ÀçÇÏ´Â FloatingCrew¸¦ °ü¸®ÇÏ´Â Å¬·¡½º
+/// ï¿½ï¿½ï¿½òº°·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ FloatingCrewï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 public class CrewFloater : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class CrewFloater : MonoBehaviour
     private float timer = 0.5f;
     private float distance = 10;
 
-    //½ÃÀÛ ½Ã, »ö±ò º° 12°³ÀÇ Crew Floater¸¦ ½ºÆù
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 12ï¿½ï¿½ï¿½ï¿½ Crew Floaterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void Start()
     {
         for(int i = 0; i < (int)EPlayerColor.Count; ++i)
@@ -27,7 +27,7 @@ public class CrewFloater : MonoBehaviour
         }
     }
 
-    //Æ¯Á¤ ½Ã°£¸¶´Ù Floating Crew¸¦ ½ºÆù
+    //Æ¯ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ Floating Crewï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void Update()
     {
         timer -= Time.deltaTime;
@@ -39,7 +39,7 @@ public class CrewFloater : MonoBehaviour
     }
 
     /// <summary>
-    /// »ý¼ºµÇÁö ¾ÊÀº playerColor »öÀÇ dist ¿øÇü °Å¸®¿¡ Floating Crew¸¦ ½ºÆùÇÏ´Â ÇÔ¼ö
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ playerColor ï¿½ï¿½ï¿½ï¿½ dist ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ Floating Crewï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     /// 
     /// </summary>
     public void SpawnFloatingCrew(EPlayerColor playerColor, float dist)
@@ -55,7 +55,7 @@ public class CrewFloater : MonoBehaviour
             float rotateSpeed = Random.Range(-3f, 3f);
             var crew = Instantiate(crewPrefab, spawnPos, Quaternion.identity).GetComponent<FloatingCrew>();
 
-            //»ý¼ºÇÑ crewÀÇ È¯°æ ¼³Á¤
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ crewï¿½ï¿½ È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             crew.SetFloatingCrew(sprites[Random.Range(0, sprites.Count)], playerColor, direction, floatingSpeed, rotateSpeed, Random.Range(0.5f, 1f));
         }
     }

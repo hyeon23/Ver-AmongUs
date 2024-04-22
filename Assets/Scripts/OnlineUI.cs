@@ -6,11 +6,11 @@ using UnityEngine.UI;
 using Mirror;
 
 /// <summary>
-/// OnLine UI¿¡ ºÎÂøÇÏ´Â Å¬·¡½º
+/// OnLine UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 public class OnlineUI : MonoBehaviour
 {
-    //´Ð³×ÀÓÀ» ÀÔ·ÂÇÏ´Â ÇÊµåÀÇ TMP.text
+    //ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï´ï¿½ ï¿½Êµï¿½ï¿½ï¿½ TMP.text
     [SerializeField]
     private TMP_InputField nicknameInputField;
 
@@ -18,8 +18,8 @@ public class OnlineUI : MonoBehaviour
     private GameObject createRoomUI;
 
     /// <summary>
-    /// ¹æ ¸¸µé±â ¹öÆ°À» ´­·¶À» ¶§ È£Ãâ
-    /// createRoomUI¿¡¼­ ¹æ¿¡ ´ëÇÑ ¼¼ºÎ ¼³Á¤ ¼öÇà ¹× »ý¼º
+    /// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½
+    /// createRoomUIï¿½ï¿½ï¿½ï¿½ ï¿½æ¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public void OnClickCreateRoom()
     {
@@ -36,8 +36,8 @@ public class OnlineUI : MonoBehaviour
     }
 
     /// <summary>
-    /// °ÔÀÓ Âü°¡ÇÏ±â ¹öÆ°À» ´­·¶À» ¶§ È£ÃâµÇ´Â ÇÔ¼ö
-    /// StartClient()¸¦ ÅëÇØ Client·Î¼­ °ÔÀÓ¿¡ Âü°¡ÇÏ°Ô µÊ
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½
+    /// StartClient()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Clientï¿½Î¼ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½
     /// </summary>
     public void OnClickEnterGameRoom()
     {

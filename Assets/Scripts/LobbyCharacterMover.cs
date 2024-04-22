@@ -2,38 +2,38 @@ using Mirror;
 using System.Collections.Generic;
 using UnityEngine;
 
-// LobbyCharacterMover Å¬·¡½º ¼±¾ð, CharacterMover Å¬·¡½º¸¦ »ó¼Ó¹ÞÀ½
+// LobbyCharacterMover Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, CharacterMover Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½
 public class LobbyCharacterMover : CharacterMover
 {
-    // ownerNetId º¯¼ö ¼±¾ð ¹× SyncVar ¼Ó¼º ºÎ¿©
-    // ownerNetId°¡ º¯°æµÉ ¶§ È£ÃâµÇ´Â hook ÇÔ¼ö ¼³Á¤
+    // ownerNetId ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ SyncVar ï¿½Ó¼ï¿½ ï¿½Î¿ï¿½
+    // ownerNetIdï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ hook ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SyncVar(hook = nameof(SetOwnerNetId_Hook))]
     public uint ownerNetId;
 
-    // ownerNetId°¡ º¯°æµÉ ¶§ È£ÃâµÇ´Â hook ÇÔ¼ö Á¤ÀÇ
+    // ownerNetIdï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ hook ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SetOwnerNetId_Hook(uint _, uint newOwnerId)
     {
-        // AmongUsRoomPlayer Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½ºµéÀ» Ã£¾Æ¼­ ¹è¿­·Î ÀúÀå
+        // AmongUsRoomPlayer Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         var players = FindObjectsOfType<AmongUsRoomPlayer>();
 
-        // ¹è¿­¿¡ ÀÖ´Â ¸ðµç ÇÃ·¹ÀÌ¾îµé¿¡ ´ëÇØ ¹Ýº¹¹® ½ÇÇà
+        // ï¿½è¿­ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         foreach (var player in players)
         {
-            // ownerNetId°¡ Æ¯Á¤ ÇÃ·¹ÀÌ¾îÀÇ netId¿Í ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎ
+            // ownerNetIdï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ netIdï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
             if (newOwnerId == player.netId)
             {
-                // ÀÏÄ¡ÇÏ´Â ÇÃ·¹ÀÌ¾îÀÇ lobbyPlayerCharacter º¯¼ö¿¡ ÇöÀç °´Ã¼ ¼³Á¤
+                // ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ lobbyPlayerCharacter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
                 player.lobbyPlayerCharacter = this;
-                // ¹Ýº¹¹® Á¾·á
+                // ï¿½Ýºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 break;
             }
         }
     }
 
-    // CompleteSpawn ÇÔ¼ö Á¤ÀÇ
+    // CompleteSpawn ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void CompleteSpawn()
     {
-        // ±ÇÇÑÀÌ ÀÖ´Â °æ¿ì¿¡¸¸ isMovable º¯¼ö¸¦ true·Î ¼³Á¤
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ isMovable ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (isOwned)
         {
             isMovable = true;

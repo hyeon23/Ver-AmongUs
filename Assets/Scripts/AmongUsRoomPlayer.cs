@@ -4,8 +4,8 @@ using UnityEngine;
 using Mirror;
 
 /// <summary>
-/// ´ë±â½Ç¿¡ Á¸ÀçÇÏ´Â ÇÃ·¹ÀÌ¾î¿¡ °ü·ÃµÈ `Á¤º¸`¸¦ ´ã´Â Å¬·¡½º
-/// `¿òÁ÷ÀÓ`À» ´Ù·ç´Â Å¬·¡½º´Â AmongUsPlayerMover
+/// ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¿¡ ï¿½ï¿½ï¿½Ãµï¿½ `ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
+/// `ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ ï¿½Ù·ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ AmongUsPlayerMover
 /// </summary>
 public class AmongUsRoomPlayer : NetworkRoomPlayer
 {
@@ -29,8 +29,8 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         }
     }
 
-    //SyncVar: ³×Å©¿öÅ© µ¿±âÈ­ º¯¼ö
-    //hook: ÇØ´ç SyncVar°¡ º¯°æµÇ¸é, ÀÚµ¿À¸·Î È£ÃâµÇ´Â ÇÔ¼ö
+    //SyncVar: ï¿½ï¿½Å©ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+    //hook: ï¿½Ø´ï¿½ SyncVarï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½, ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½
     [SyncVar(hook = nameof(SetPlayerColor_Hook))]
     public EPlayerColor playerColor;
 
@@ -39,22 +39,22 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         LobbyUIManager.Instance.CustomizeUI.UpdateColorButton();
     }
 
-    //Lobby Player Character Ä³¸¯ÅÍ¸¦ LobbyCharacterMover·Î Á¶ÀÛÇÏ±â À§ÇÑ º¯¼ö
+    //Lobby Player Character Ä³ï¿½ï¿½ï¿½Í¸ï¿½ LobbyCharacterMoverï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public CharacterMover lobbyPlayerCharacter;
 
     private void Start()
     {
-        //NetworkRoomPlayer¿¡ Start() ÇÔ¼ö°¡ Á¸ÀçÇÏ±â ¶§¹®¿¡ ÀÌ¾î ½ÇÇà
+        //NetworkRoomPlayerï¿½ï¿½ Start() ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
         base.Start();
 
         if (isServer)
         {
-            //RoomPlayer°¡ Server¶ó¸é -> LobbyPlayer ½ºÆù
+            //RoomPlayerï¿½ï¿½ Serverï¿½ï¿½ï¿½ -> LobbyPlayer ï¿½ï¿½ï¿½ï¿½
             SpawnLobbyPlayer();
         }
     }
 
-    [Command]//Cmd ÇÔ¼ö ÀÛ¼º ½Ã, ÀÌ¸§ ¾Õ¿¡ Cmd¸¦ ºÙÀÎ´Ù.
+    [Command]//Cmd ï¿½Ô¼ï¿½ ï¿½Û¼ï¿½ ï¿½ï¿½, ï¿½Ì¸ï¿½ ï¿½Õ¿ï¿½ Cmdï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
     public void CmdSetPlayerColor(EPlayerColor color)
     {
         playerColor = color;
@@ -62,7 +62,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
     }
 
     /// <summary>
-    /// LobbyPlayer¸¦ ½ºÆùÇÏ´Â ÇÔ¼ö
+    /// LobbyPlayerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
     private void SpawnLobbyPlayer()
     {
@@ -77,7 +77,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
             foreach(var roomPlayer in roomSlots)
             {
                 var amongUsRoomPlayer = roomPlayer as AmongUsRoomPlayer;
-                //µ¿ÀÏÇÑ ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ñµ¥, ÇÃ·¹ÀÌ¾î Ä®¶ó°¡ °°Àº °æ¿ì -> °°Àº »ö Ã³¸®(Áßº¹ Á¦°Å)
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½Æ´Ñµï¿½, ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Ä®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½(ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½)
                 if(amongUsRoomPlayer.playerColor == (EPlayerColor)i && roomPlayer.netId != netId)
                 {
                     isFindSameColor = true;
@@ -85,7 +85,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
                 }
             }
 
-            //Áßº¹µÈ »öÀÌ ¾Æ´Ò °æ¿ì
+            //ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½
             if (!isFindSameColor)
             {
                 color = (EPlayerColor)i;
@@ -93,17 +93,17 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
             }
         }
 
-        //-> ÇÃ·¹ÀÌ¾î »öÀ¸·Î ¼³Á¤
+        //-> ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         playerColor = color;
 
-        //¼³Á¤µÈ Á¤º¸¸¦ ±â¹ÝÀ¸·Î LobbyPlayer ½ºÆù
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ LobbyPlayer ï¿½ï¿½ï¿½ï¿½
         Vector3 spawnPos = FindObjectOfType<SpawnPositions>().GetSpawnPosition();
 
         var player = Instantiate(AmongUsRoomManager.singleton.spawnPrefabs[0], spawnPos, Quaternion.identity).GetComponent<LobbyCharacterMover>();
 
         NetworkServer.Spawn(player.gameObject, connectionToClient);
 
-        //»ý¼ºµÈ LobbyPlayerÀÇ Á¤º¸ ¼³Á¤
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ LobbyPlayerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         player.ownerNetId = netId;
 
         player.playerColor = color;

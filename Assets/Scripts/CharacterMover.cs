@@ -10,18 +10,18 @@ public class CharacterMover : NetworkBehaviour
 
     public bool isMovable;
 
-    [SyncVar]//³×Æ®¿öÅ© µ¿±âÈ­
+    [SyncVar]//ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½È­
     public float speed = 2f;
 
     private SpriteRenderer spriteRenderer;
 
     [SyncVar(hook = nameof(SetPlayerColorHook))]
-    //º¯¼ö µ¿±âÈ­ + hook: SyncVar·Î µ¿±âÈ­µÈ º¯¼ö°¡ Server¿¡¼­ º¯°æµÇ¸é hookÀ¸·Î µî·ÏµÈ ÇÔ¼ö°¡ Client¿¡¼­ È£Ãâ
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ + hook: SyncVarï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Serverï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ hookï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ Clientï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½
     public EPlayerColor playerColor;
 
     /// <summary>
-    /// SyncVar [player Color(=»ö)]ÀÌ º¯°æµÉ °æ¿ì Å¬¶óÀÌ¾ðÆ® Ãø¸é¿¡¼­ È£ÃâµÇ´Â ÇÔ¼ö
-    /// ÀÎÀÚ·Î µé¾î¿Â newColorÀÇ »ö»óÀ¸·Î materialÀÇ Color¸¦ º¯°æÇØÁÜ
+    /// SyncVar [player Color(=ï¿½ï¿½)]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½é¿¡ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½
+    /// ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ newColorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ materialï¿½ï¿½ Colorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public void SetPlayerColorHook(EPlayerColor oldColor, EPlayerColor newColor)
     {
@@ -50,7 +50,7 @@ public class CharacterMover : NetworkBehaviour
     }
 
     /// <summary>
-    /// ¸Å ÇÁ·¹ÀÓ¸¶´Ù ÀÌµ¿
+    /// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     /// </summary>
     void FixedUpdate()
     {
@@ -58,11 +58,11 @@ public class CharacterMover : NetworkBehaviour
     }
 
     /// <summary>
-    /// ¸Å ÇÁ·¹ÀÓ¸¶´Ù ÁøÇàµÇ´Â ÀÌµ¿ ÇÔ¼ö
+    /// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ìµï¿½ ï¿½Ô¼ï¿½
     /// </summary>
     public void Move()
     {
-        if(isOwned && isMovable)//±ÇÇÑ O & ÀÌµ¿ °¡´É
+        if(isOwned && isMovable)//ï¿½ï¿½ï¿½ï¿½ O & ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             bool isMove = false;
 
@@ -70,14 +70,14 @@ public class CharacterMover : NetworkBehaviour
             {
                 if (Input.GetMouseButton(0))
                 {
-                    //Á¶ÀÛ ¹æ½Ä¿¡ µû¸¥ ¹æÇâº¤ÅÍ
+                    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½âº¤ï¿½ï¿½
                     Vector3 dir = (Input.mousePosition - new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)).normalized;
 
-                    //½ºÇÁ¶óÀÌÆ® ¹ÝÀü
+                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
                     if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
                     else if (dir.x > 0f) transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 
-                    //ÇÁ·¹ÀÓ º° ÀÌµ¿
+                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½
                     transform.position += dir * speed * Time.deltaTime;
 
                     isMove = dir.magnitude != 0f;
@@ -85,14 +85,14 @@ public class CharacterMover : NetworkBehaviour
             }
             else if (PlayerSettings.controlType == EControlType.KeyboardMouse)
             {
-                //Á¶ÀÛ ¹æ½Ä¿¡ µû¸¥ ¹æÇâº¤ÅÍ
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½âº¤ï¿½ï¿½
                 Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f), 1f);
                 
-                //½ºÇÁ¶óÀÌÆ® ¹ÝÀü
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
                 if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
                 else if (dir.x > 0f) transform.localScale = new Vector3(0.5f, 0.5f, 1f);
                 
-                //ÇÁ·¹ÀÓ º° ÀÌµ¿
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½
                 transform.position += dir * speed * Time.deltaTime;
 
                 isMove = dir.magnitude != 0f;
