@@ -36,7 +36,7 @@ public class LobbyCharacterMover : CharacterMover
         // ������ �ִ� ��쿡�� isMovable ������ true�� ����
         if (isOwned)
         {
-            isMovable = true;
+            IsMovable = true;
         }
     }
 }

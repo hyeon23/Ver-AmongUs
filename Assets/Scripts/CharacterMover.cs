@@ -8,7 +8,20 @@ public class CharacterMover : NetworkBehaviour
 {
     private Animator animator;
 
-    public bool isMovable;
+    private bool isMovable;
+
+    public bool IsMovable
+    {
+        get { return isMovable; }
+        set
+        {
+            if (!value)
+            {
+                animator.SetBool("isMove", false);
+            }
+            isMovable = value;
+        }
+    }
 
     [SyncVar]//��Ʈ��ũ ����ȭ
     public float speed = 2f;
@@ -62,7 +75,7 @@ public class CharacterMover : NetworkBehaviour
     /// </summary>
     public void Move()
     {
-        if(isOwned && isMovable)//���� O & �̵� ����
+        if(isOwned && IsMovable)//���� O & �̵� ����
         {
             bool isMove = false;
 
