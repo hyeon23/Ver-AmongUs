@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -130,13 +131,13 @@ public class CreateRoomUI : MonoBehaviour
 
     public void CreateRoom()
     {
-        var manager = AmongUsRoomManager.singleton;
+        var manager = NetworkRoomManager.singleton as AmongUsRoomManager;
 
-        //�� ���� �۾� ó��
-        //������ ���� ���� ���� �����ϰ�, �����ϴ� ���� �ʿ�(��ó��)
-
-        //���� ���� & Ŭ�� ���� ����
-        //StartHost(): ������ ���� ���ÿ� Ŭ���̾�Ʈ�μ� ���ӿ� ����
+        //방 설정  작업 처리
+        manager.minPlayerCount = roomData.imposterCount == 1 ? 4 : roomData.imposterCount == 2 ? 7 : 9;
+        manager.imposterCount = roomData.imposterCount;
+        manager.maxConnections = roomData.maxPlayerCount;//자체적으로 존재하는 최대 연결 수 변수
+        
         manager.StartHost();
     }
 }

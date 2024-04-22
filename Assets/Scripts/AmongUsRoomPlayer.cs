@@ -105,10 +105,15 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         //-> �÷��̾� ������ ����
         playerColor = color;
 
+        var spawnPositions = FindObjectOfType<SpawnPositions>();
+        int index = spawnPositions.Index;
+
         //������ ������ ������� LobbyPlayer ����
         Vector3 spawnPos = FindObjectOfType<SpawnPositions>().GetSpawnPosition();
 
         var player = Instantiate(AmongUsRoomManager.singleton.spawnPrefabs[0], spawnPos, Quaternion.identity).GetComponent<LobbyCharacterMover>();
+
+        player.transform.localScale = (index < 5) ? new Vector3(0.5f, 0.5f, 1f) : new Vector3(-0.5f, 0.5f, 1f);
 
         NetworkServer.Spawn(player.gameObject, connectionToClient);
 

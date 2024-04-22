@@ -11,7 +11,7 @@ public class SpawnPositions : MonoBehaviour
     private Transform[] spawnPositions;
 
     private int index;
-
+    public int Index { get; }
     /// <summary>
     /// ���� index�� �ش��ϴ� SpawnPosition�� return���ش�.
     /// </summary>
