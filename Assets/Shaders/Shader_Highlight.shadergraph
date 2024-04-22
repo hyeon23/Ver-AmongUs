@@ -100,7 +100,7 @@
                 "m_Node": {
                     "m_Id": "73ca8e46e6b84404a19bd6ac07e96851"
                 },
-                "m_SlotId": 2
+                "m_SlotId": 1
             }
         },
         {
@@ -170,7 +170,7 @@
                 "m_Node": {
                     "m_Id": "73ca8e46e6b84404a19bd6ac07e96851"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 2
             }
         }
     ],
@@ -322,10 +322,10 @@
     "m_Guid": {
         "m_GuidSerialized": "43bdac8a-d554-46cc-8809-af3e57bfb15a"
     },
-    "m_Name": "_Hightlighted",
+    "m_Name": "_Highlighted",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "_Hightlighted",
-    "m_DefaultReferenceName": "_Hightlighted",
+    "m_RefNameGeneratedByDisplayName": "_Highlighted",
+    "m_DefaultReferenceName": "_Highlighted",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1172,7 +1172,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "b0641e5a051f40a6a90a1b41eecef17f",
     "m_Id": 0,
-    "m_DisplayName": "_Hightlighted",
+    "m_DisplayName": "_Highlighted",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1337,10 +1337,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 46.0,
-            "y": 280.0,
-            "width": 208.0,
-            "height": 302.0
+            "x": 127.99998474121094,
+            "y": 407.0000305175781,
+            "width": 208.00001525878907,
+            "height": 301.9999694824219
         }
     },
     "m_Slots": [
