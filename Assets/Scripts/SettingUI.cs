@@ -68,7 +68,7 @@ public class SettingUI : MonoBehaviour
     /// <summary>
     /// Settingâ Close
     /// </summary>
-    public void Close()
+    public virtual void Close()
     {
         StartCoroutine(CloseAfterDelay());
     }
