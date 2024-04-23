@@ -47,6 +47,14 @@ public class GameRuleStore : NetworkBehaviour
     {
         UpdateGameRuleOverview();
     }
+    public void OnRecommandToggle(bool value)
+    {
+        isRecommandRule = value;
+        if (isRecommandRule)
+        {
+            SetRecommendGameRule();
+        }
+    }
 
     [SyncVar(hook = nameof(SetConfirmEjects_Hook))]
     private bool confirmEjects;
@@ -55,6 +63,12 @@ public class GameRuleStore : NetworkBehaviour
     public void SetConfirmEjects_Hook(bool _, bool value)
     {
         UpdateGameRuleOverview();
+    }
+    public void OnConfirmEjectsToggle(bool value)
+    {
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+        confirmEjects = value;
     }
 
     [SyncVar(hook = nameof(SetEmergencyMeetings_Hook))]
@@ -66,6 +80,12 @@ public class GameRuleStore : NetworkBehaviour
         emergencyMeetingsTMP.text = value.ToString();
         UpdateGameRuleOverview();
     }
+    public void OnChangeEmergencyMeetings(bool isPlus)
+    {
+        emergencyMeetings = Mathf.Clamp(emergencyMeetings + (isPlus ? 1 : -1), 0, 9);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SyncVar(hook = nameof(SetEmergencyMeetingsCooldown_Hook))]
     private int emergencyMeetingsCooldown;
@@ -75,6 +95,12 @@ public class GameRuleStore : NetworkBehaviour
     {
         emergencyMeetingsCooldownTMP.text = string.Format("{0}s", value);
         UpdateGameRuleOverview();
+    }
+    public void OnChangeEmergencyMeetingsCooldown(bool isPlus)
+    {
+        emergencyMeetingsCooldown = Mathf.Clamp(emergencyMeetingsCooldown + (isPlus ? 5 : -5), 0, 60);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
     }
 
     [SyncVar(hook = nameof(SetMeetingTime_Hook))]
@@ -86,6 +112,12 @@ public class GameRuleStore : NetworkBehaviour
         meetingsTimeTMP.text = string.Format("{0}s", value);
         UpdateGameRuleOverview();
     }
+    public void OnChangeMeetingTime(bool isPlus)
+    {
+        meetingsTime = Mathf.Clamp(meetingsTime + (isPlus ? 5 : -5), 0, 120);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SyncVar(hook = nameof(SetVoteTime_Hook))]
     private int voteTime;
@@ -96,6 +128,12 @@ public class GameRuleStore : NetworkBehaviour
         voteTimeTMP.text = string.Format("{0}s", value);
         UpdateGameRuleOverview();
     }
+    public void OnChangeVoteTime(bool isPlus)
+    {
+        voteTime = Mathf.Clamp(voteTime + (isPlus ? 5 : -5), 0, 300);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SyncVar(hook = nameof(SetAnonymousVotes_Hook))]
     private bool anonymousVotes;
@@ -104,6 +142,12 @@ public class GameRuleStore : NetworkBehaviour
     public void SetAnonymousVotes_Hook(bool _, bool value)
     {
         UpdateGameRuleOverview();
+    }
+    public void OnAnonymousVotesToggle(bool value)
+    {
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+        anonymousVotes = value;
     }
 
     [SyncVar(hook = nameof(SetMoveSpeed_Hook))]
@@ -115,6 +159,12 @@ public class GameRuleStore : NetworkBehaviour
         moveSpeedTMP.text = string.Format("{0:0:0}x", value);
         UpdateGameRuleOverview();
     }
+    public void OnChangeMoveSpeed(bool isPlus)
+    {
+        moveSpeed = Mathf.Clamp(moveSpeed + (isPlus ? 0.25f : -0.25f), 0.5f, 3f);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SyncVar(hook = nameof(SetCrewSight_Hook))]
     private float crewSight;
@@ -124,6 +174,12 @@ public class GameRuleStore : NetworkBehaviour
     {
         crewSightTMP.text = string.Format("{0:0:0}x", value);
         UpdateGameRuleOverview();
+    }
+    public void OnChangeCrewSight(bool isPlus)
+    {
+        crewSight = Mathf.Clamp(crewSight + (isPlus ? 0.25f : -0.25f), 0.25f, 5f);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
     }
 
     [SyncVar(hook = nameof(SetImposterSight_Hook))]
@@ -135,6 +191,12 @@ public class GameRuleStore : NetworkBehaviour
         imposterSigntTMP.text = string.Format("{0:0:0}x", value);
         UpdateGameRuleOverview();
     }
+    public void OnChangeImposterSight(bool isPlus)
+    {
+        imposterSignt = Mathf.Clamp(imposterSignt + (isPlus ? 0.25f : -0.25f), 0.25f, 5f);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SyncVar(hook = nameof(SetKillCooldown_Hook))]
     private float killCooldown;
@@ -144,6 +206,12 @@ public class GameRuleStore : NetworkBehaviour
     {
         killCooldownTMP.text = string.Format("{0:0:0}s", value);
         UpdateGameRuleOverview();
+    }
+    public void OnChangeKillCooldown(bool isPlus)
+    {
+        killCooldown = Mathf.Clamp(killCooldown + (isPlus ? 2.5f : -2.5f), 10f, 60f);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
     }
 
     [SyncVar(hook = nameof(SetKillRange_Hook))]
@@ -155,6 +223,12 @@ public class GameRuleStore : NetworkBehaviour
         killRangeTMP.text = value.ToString();
         UpdateGameRuleOverview();
     }
+    public void OnChangeKillRange(bool isPlus)
+    {
+        killRange = (EKillRange)Mathf.Clamp((int)killRange + (isPlus ? 1 : -1), 0, 2);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SyncVar(hook = nameof(SetVisualTasks_Hook))]
     private bool visualTasks;
@@ -163,6 +237,12 @@ public class GameRuleStore : NetworkBehaviour
     public void SetVisualTasks_Hook(bool _, bool value)
     {
         UpdateGameRuleOverview();
+    }
+    public void OnVisualTasksToggle(bool value)
+    {
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+        visualTasks = value;
     }
 
     [SyncVar(hook = nameof(SetTaskBarUpdates_Hook))]
@@ -174,6 +254,12 @@ public class GameRuleStore : NetworkBehaviour
         taskBarUpdatesTMP.text = value.ToString();
         UpdateGameRuleOverview();
     }
+    public void OnChangeTaskBarUpdates(bool isPlus)
+    {
+        taskBarUpdates = (ETaskBarUpdates)Mathf.Clamp((int)taskBarUpdates + (isPlus ? 1 : -1), 0, 2);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SyncVar(hook = nameof(SetCommonTask_Hook))]
     private int commonTask;
@@ -183,6 +269,12 @@ public class GameRuleStore : NetworkBehaviour
     {
         commonTaskTMP.text = value.ToString();
         UpdateGameRuleOverview();
+    }
+    public void OnChangeCommonTask(bool isPlus)
+    {
+        commonTask = Mathf.Clamp(commonTask + (isPlus ? 1 : -1), 0, 2);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
     }
 
     [SyncVar(hook = nameof(SetComplexTask_Hook))]
@@ -194,6 +286,12 @@ public class GameRuleStore : NetworkBehaviour
         complexTaskTMP.text = value.ToString();
         UpdateGameRuleOverview();
     }
+    public void OnChangeComplexTask(bool isPlus)
+    {
+        complexTask = Mathf.Clamp(complexTask + (isPlus ? 1 : -1), 0, 3);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SyncVar(hook = nameof(SetSimpleTask_Hook))]
     private int simpleTask;
@@ -204,7 +302,12 @@ public class GameRuleStore : NetworkBehaviour
         simpleTaskTMP.text = value.ToString();
         UpdateGameRuleOverview();
     }
-
+    public void OnChangeSimpleTask(bool isPlus)
+    {
+        simpleTask = Mathf.Clamp(simpleTask + (isPlus ? 1 : -1), 0, 5);
+        isRecommandRule = false;
+        isRecommandRuleToggle.isOn = false;
+    }
 
     [SerializeField]
     private TextMeshProUGUI gameRuleOverview;
