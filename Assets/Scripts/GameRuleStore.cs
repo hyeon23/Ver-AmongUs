@@ -351,6 +351,7 @@ public class GameRuleStore : NetworkBehaviour
         killCooldown = 45f;
         killRange = EKillRange.Normal;
         visualTasks = true;
+        taskBarUpdates = ETaskBarUpdates.Meetings;
         commonTask = 1;
         complexTask = 1;
         simpleTask = 2;
