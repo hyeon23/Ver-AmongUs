@@ -11,6 +11,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
 {
     private static AmongUsRoomPlayer myRoomPlayer;
     public static AmongUsRoomPlayer MyRoomPlayer
+
     {
         get
         {
