@@ -9,7 +9,7 @@ public class GameRuleItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!AmongUsRoomPlayer.MyRoomPlayer.isServer)
+        if (AmongUsRoomPlayer.MyRoomPlayer != null && !AmongUsRoomPlayer.MyRoomPlayer.isServer)
         {
             inactiveObject.SetActive(false);
         }
