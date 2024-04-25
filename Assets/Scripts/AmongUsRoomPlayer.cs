@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using static UnityEngine.Rendering.DebugUI;
 
 public class AmongUsRoomPlayer : NetworkRoomPlayer
 {

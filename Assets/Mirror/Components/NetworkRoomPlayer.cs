@@ -191,5 +191,12 @@ namespace Mirror
         }
 
         #endregion
+
+        ///addition
+        // readyToBegin 값을 설정하는 메서드
+        public void SetreadyToBegin(bool value)
+        {
+            readyToBegin = value;
+        }
     }
 }
