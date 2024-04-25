@@ -309,22 +309,15 @@ public class GameRuleStore : NetworkBehaviour
         isRecommandRuleToggle.isOn = false;
     }
 
-    [SyncVar(hook = nameof(SetImposterCount_Hook))]
-    private int imposterCount;
-    public void SetImposterCount_Hook(int _, int value)
-    {
-        UpdateGameRuleOverview();
-    }
-
-
     [SerializeField]
     private TextMeshProUGUI gameRuleOverview;
 
     public void UpdateGameRuleOverview()
     {
+        var manager = NetworkManager.singleton as AmongUsRoomManager;
         StringBuilder sb = new StringBuilder(isRecommandRule ? "추천 설정\n" : "커스텀 설정n");
         sb.Append("맵: The Skeld\n");
-        sb.Append($"#임포스터: {imposterCount}\n");
+        sb.Append($"#임포스터: {manager.imposterCount}\n");
         sb.Append(string.Format("Confirm Ejects: {0}\n", confirmEjects ? "켜짐" : "꺼짐"));
         sb.Append($"긴급 회의: {emergencyMeetings}\n");
         sb.Append(string.Format("Anomymous Votes: {0}\n", anonymousVotes ? "켜짐" : "꺼짐"));
@@ -358,6 +351,7 @@ public class GameRuleStore : NetworkBehaviour
         killCooldown = 45f;
         killRange = EKillRange.Normal;
         visualTasks = true;
+        taskBarUpdates = ETaskBarUpdates.Meetings;
         commonTask = 1;
         complexTask = 1;
         simpleTask = 2;
@@ -367,11 +361,6 @@ public class GameRuleStore : NetworkBehaviour
     {
         if (isServer)
         {
-            var manager = NetworkManager.singleton as AmongUsRoomManager;
-
-            imposterCount = manager.imposterCount;
-            anonymousVotes = false;
-            taskBarUpdates = ETaskBarUpdates.Always;
             SetRecommendGameRule();
         }
     }
