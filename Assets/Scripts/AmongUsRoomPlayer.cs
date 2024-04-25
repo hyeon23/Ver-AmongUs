@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-/// <summary>
-/// ���ǿ� �����ϴ� �÷��̾ ���õ� `����`�� ��� Ŭ����
-/// `������`�� �ٷ�� Ŭ������ AmongUsPlayerMover
-/// </summary>
 public class AmongUsRoomPlayer : NetworkRoomPlayer
 {
     private static AmongUsRoomPlayer myRoomPlayer;
@@ -41,6 +37,10 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         LobbyUIManager.Instance.CustomizeUI.UpdateSelectColorButton(newColor);
     }
 
+    [SyncVar]
+    public string nickname;
+
+
     //Lobby Player Character ĳ���͸� LobbyCharacterMover�� �����ϱ� ���� ����
     public CharacterMover lobbyPlayerCharacter;
 
@@ -53,7 +53,15 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         {
             //RoomPlayer�� Server��� -> LobbyPlayer ����
             SpawnLobbyPlayer();
+            LobbyUIManager.Instance.ActiveStartButton();
         }
+
+        if (isLocalPlayer)
+        {
+            CmdSetNickname(PlayerSettings.nickname);
+        }
+
+        LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
     }
 
     private void OnDestroy()
@@ -61,7 +69,15 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         if(LobbyUIManager.Instance != null)
         {
             LobbyUIManager.Instance.CustomizeUI.UpdateUnselectColorButton(playerColor);
+            LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
         }
+    }
+
+    [Command]
+    public void CmdSetNickname(string nick)
+    {
+        nickname = nick;
+        lobbyPlayerCharacter.nickname = nick;
     }
 
     [Command]//Cmd �Լ� �ۼ� ��, �̸� �տ� Cmd�� ���δ�.
