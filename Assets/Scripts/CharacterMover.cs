@@ -24,19 +24,20 @@ public class CharacterMover : NetworkBehaviour
         }
     }
 
-    [SyncVar]//��Ʈ��ũ ����ȭ
+    [SyncVar]
     public float speed = 2f;
+
+    [SerializeField]
+    private float characterSize = 0.5f;
+
+    [SerializeField]
+    private float cameraSize = 2.5f;
 
     private SpriteRenderer spriteRenderer;
 
     [SyncVar(hook = nameof(SetPlayerColorHook))]
-    //���� ����ȭ + hook: SyncVar�� ����ȭ�� ������ Server���� ����Ǹ� hook���� ��ϵ� �Լ��� Client���� ȣ��
     public EPlayerColor playerColor;
 
-    /// <summary>
-    /// SyncVar [player Color(=��)]�� ����� ��� Ŭ���̾�Ʈ ���鿡�� ȣ��Ǵ� �Լ�
-    /// ���ڷ� ���� newColor�� �������� material�� Color�� ��������
-    /// </summary>
     public void SetPlayerColorHook(EPlayerColor oldColor, EPlayerColor newColor)
     {
         if(spriteRenderer == null)
@@ -57,7 +58,7 @@ public class CharacterMover : NetworkBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         animator = GetComponent<Animator>();
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -68,24 +69,18 @@ public class CharacterMover : NetworkBehaviour
             Camera cam = Camera.main;
             cam.transform.SetParent(transform);
             cam.transform.localPosition = new Vector3(0f, 0f, -10f);
-            cam.orthographicSize = 2.5f;
+            cam.orthographicSize = cameraSize;
         }
     }
 
-    /// <summary>
-    /// �� �����Ӹ��� �̵�
-    /// </summary>
     void FixedUpdate()
     {
         Move();
     }
 
-    /// <summary>
-    /// �� �����Ӹ��� ����Ǵ� �̵� �Լ�
-    /// </summary>
     public void Move()
     {
-        if(isOwned && IsMovable)//���� O & �̵� ����
+        if(isOwned && IsMovable)
         {
             bool isMove = false;
 
@@ -93,14 +88,11 @@ public class CharacterMover : NetworkBehaviour
             {
                 if (Input.GetMouseButton(0))
                 {
-                    //���� ��Ŀ� ���� ���⺤��
                     Vector3 dir = (Input.mousePosition - new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)).normalized;
 
-                    //��������Ʈ ����
-                    if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
-                    else if (dir.x > 0f) transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                    if (dir.x < 0f) transform.localScale = new Vector3(-characterSize, characterSize, 1f);
+                    else if (dir.x > 0f) transform.localScale = new Vector3(characterSize, characterSize, 1f);
 
-                    //������ �� �̵�
                     transform.position += dir * speed * Time.deltaTime;
 
                     isMove = dir.magnitude != 0f;
@@ -108,14 +100,11 @@ public class CharacterMover : NetworkBehaviour
             }
             else if (PlayerSettings.controlType == EControlType.KeyboardMouse)
             {
-                //���� ��Ŀ� ���� ���⺤��
                 Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f), 1f);
                 
-                //��������Ʈ ����
-                if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
-                else if (dir.x > 0f) transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                if (dir.x < 0f) transform.localScale = new Vector3(-characterSize, characterSize, 1f);
+                else if (dir.x > 0f) transform.localScale = new Vector3(characterSize, characterSize, 1f);
                 
-                //������ �� �̵�
                 transform.position += dir * speed * Time.deltaTime;
 
                 isMove = dir.magnitude != 0f;
