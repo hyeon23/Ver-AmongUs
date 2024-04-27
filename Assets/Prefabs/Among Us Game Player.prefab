@@ -376,6 +376,7 @@ MonoBehaviour:
   playerColor: 0
   nickname: 
   nicknameTMP: {fileID: 1657002583942472308}
+  playerType: 0
 --- !u!1 &7907521423418947660
 GameObject:
   m_ObjectHideFlags: 0

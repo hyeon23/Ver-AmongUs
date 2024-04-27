@@ -4,8 +4,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EPlayerType 
+{ 
+    Crew,
+    Imposter,
+    CrewGhost,
+    ImpoaterGhost,
+    Count
+}
+
+
 public class InGameCharacterMover : CharacterMover
 {
+    [SyncVar]
+    public EPlayerType playerType;
+
     public override void Start()
     {
         base.Start();
@@ -18,6 +31,8 @@ public class InGameCharacterMover : CharacterMover
 
             CmdSetPlayerCharacter(myRoomPlayer.nickname, myRoomPlayer.playerColor);
         }
+
+        GameSystem.instance.AddPlayer(this);
     }
 
     [Command]

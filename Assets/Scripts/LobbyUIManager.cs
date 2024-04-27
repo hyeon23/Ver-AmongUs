@@ -66,7 +66,6 @@ public class LobbyUIManager : MonoBehaviour
         {
             players[i].SetreadyToBegin(true);
         }
-        var manager = NetworkManager.singleton as AmongUsRoomManager;
         manager.ServerChangeScene(manager.GameplayScene);
     }
 }
