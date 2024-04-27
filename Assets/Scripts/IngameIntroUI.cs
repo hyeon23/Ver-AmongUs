@@ -87,7 +87,7 @@ public class IngameIntroUI : MonoBehaviour
                 }
             }
         }
-        myCharacter.gameObject.SetActive(true);
+        //myCharacter.gameObject.SetActive(true);
     }
 
     public void Close()

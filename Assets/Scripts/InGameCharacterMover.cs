@@ -35,6 +35,12 @@ public class InGameCharacterMover : CharacterMover
         GameSystem.instance.AddPlayer(this);
     }
 
+    [ClientRpc]
+    public void RpcTeleport(Vector3 position)
+    {
+        transform.position = position;
+    }
+
     [Command]
     private void CmdSetPlayerCharacter(string nickname, EPlayerColor playerColor)
     {
