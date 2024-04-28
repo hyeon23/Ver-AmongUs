@@ -68,8 +68,6 @@ public class GameSystem : NetworkBehaviour
 
     private IEnumerator StartGame()
     {
-
-
         yield return StartCoroutine(IngameUIManager.instance.IngameIntroUI.ShowIntroSequence());
 
         InGameCharacterMover myCharacter = null;

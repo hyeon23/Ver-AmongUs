@@ -39,7 +39,7 @@ public class InGameCharacterMover : CharacterMover
 
     public void SetNicknameColor(EPlayerType myType)
     {
-        if(playerType == EPlayerType.Crew && myType == EPlayerType.Imposter)
+        if(playerType == EPlayerType.Imposter && myType == EPlayerType.Imposter)
         {
             nicknameTMP.color = Color.red;
         }

@@ -56,8 +56,9 @@ public class IngameIntroUI : MonoBehaviour
         }
 
         myCharacter.SetIntroCharacter(myPlayer.nickname, myPlayer.playerColor);
+        myCharacter.gameObject.SetActive(true);
 
-        if(myPlayer.playerType == EPlayerType.Imposter)
+        if (myPlayer.playerType == EPlayerType.Imposter)
         {
             playerTypeTMP.text = "임포스터";
             playerTypeTMP.color = gradation.color = imposterColor;
