@@ -68,9 +68,28 @@ public class GameSystem : NetworkBehaviour
 
     private IEnumerator StartGame()
     {
+
+
         yield return StartCoroutine(IngameUIManager.instance.IngameIntroUI.ShowIntroSequence());
 
-        yield return new WaitForSeconds(4f);
+        InGameCharacterMover myCharacter = null;
+
+        foreach(var player in players)
+        {
+            if (player.isOwned)
+            {
+                myCharacter = player;
+                break;
+            }
+        }
+
+        //나 포함 임포스터면 빨간색 표시
+        foreach(var player in players)
+        {
+            player.SetNicknameColor(myCharacter.playerType);
+        }
+
+        yield return new WaitForSeconds(3f);
 
         IngameUIManager.instance.IngameIntroUI.Close();
     }

@@ -23,6 +23,8 @@ public class InGameCharacterMover : CharacterMover
     {
         base.Start();
 
+        speed = 1f;
+
         if (isOwned)
         {
             IsMovable = true;
@@ -33,6 +35,14 @@ public class InGameCharacterMover : CharacterMover
         }
 
         GameSystem.instance.AddPlayer(this);
+    }
+
+    public void SetNicknameColor(EPlayerType myType)
+    {
+        if(playerType == EPlayerType.Crew && myType == EPlayerType.Imposter)
+        {
+            nicknameTMP.color = Color.red;
+        }
     }
 
     [ClientRpc]

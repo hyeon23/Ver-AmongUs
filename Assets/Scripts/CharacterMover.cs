@@ -51,7 +51,7 @@ public class CharacterMover : NetworkBehaviour
     [SyncVar(hook = nameof(SetNickname_Hook))]
     public string nickname;
     [SerializeField]
-    private TextMeshProUGUI nicknameTMP;
+    protected TextMeshProUGUI nicknameTMP;
     public void SetNickname_Hook(string _, string value)
     {
         nicknameTMP.text = value;
