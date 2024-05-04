@@ -12,6 +12,7 @@ public class AmongUsRoomManager : NetworkRoomManager
 
     public override void OnRoomServerConnect(NetworkConnectionToClient conn)
     {
+        
         base.OnRoomServerConnect(conn);
     }
 }
