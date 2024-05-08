@@ -41,9 +41,12 @@ public class LobbyUIManager : MonoBehaviour
 
     public void UnSetUseButton()
     {
-        useButton.image.sprite = originUseButtonSprite;
-        useButton.onClick.RemoveAllListeners();
-        useButton.interactable = false;
+        if(useButton.image != null)
+        {
+            useButton.image.sprite = originUseButtonSprite;
+            useButton.onClick.RemoveAllListeners();
+            useButton.interactable = false;
+        }
     }
 
     public void ActiveStartButton()
